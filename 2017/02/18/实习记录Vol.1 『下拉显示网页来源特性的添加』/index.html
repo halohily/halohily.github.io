@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="翻墙,Lantern," />
+  <meta name="keywords" content="实习记录,下拉显示网页来源,Hybrid," />
 
 
 
@@ -87,19 +87,21 @@
 
 
 
-<meta name="description" content="工作或学习时，我们偶尔需要访问被封锁的Google，YouTube等网站。这次为大家推荐一款优秀的一键翻墙软件 ——— Lantern。">
+<meta name="description" content="『下拉显示网页来源』的实现在最开始先简单介绍一下该效果的实现方式。
+这个功能我们在微信中打开链接时、一些手机浏览器中会经常看到，效果如下图：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OS轻应用推荐之 一键翻墙的 『Lantern』">
-<meta property="og:url" content="http://halohily.com/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/index.html">
+<meta property="og:title" content="实习记录Vol.1 『下拉显示网页来源特性的添加』">
+<meta property="og:url" content="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/index.html">
 <meta property="og:site_name" content="I wanna see your halo.">
-<meta property="og:description" content="工作或学习时，我们偶尔需要访问被封锁的Google，YouTube等网站。这次为大家推荐一款优秀的一键翻墙软件 ——— Lantern。">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fco3h2uf1lj30e80e8t96.jpg">
-<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tNc79ly1fco43u5rg5j30go0b3t97.jpg">
-<meta property="og:updated_time" content="2017-02-12T15:59:36.000Z">
+<meta property="og:description" content="『下拉显示网页来源』的实现在最开始先简单介绍一下该效果的实现方式。
+这个功能我们在微信中打开链接时、一些手机浏览器中会经常看到，效果如下图：">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tKfTcly1fcuhfbhbhpj30hs080jrm.jpg">
+<meta property="og:updated_time" content="2017-02-18T06:07:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OS轻应用推荐之 一键翻墙的 『Lantern』">
-<meta name="twitter:description" content="工作或学习时，我们偶尔需要访问被封锁的Google，YouTube等网站。这次为大家推荐一款优秀的一键翻墙软件 ——— Lantern。">
-<meta name="twitter:image" content="https://ww3.sinaimg.cn/large/006tNc79ly1fco3h2uf1lj30e80e8t96.jpg">
+<meta name="twitter:title" content="实习记录Vol.1 『下拉显示网页来源特性的添加』">
+<meta name="twitter:description" content="『下拉显示网页来源』的实现在最开始先简单介绍一下该效果的实现方式。
+这个功能我们在微信中打开链接时、一些手机浏览器中会经常看到，效果如下图：">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/006tKfTcly1fcuhfbhbhpj30hs080jrm.jpg">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://halohily.com/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/"/>
+  <link rel="canonical" href="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/"/>
 
 
 
 
 
-  <title> Mac OS轻应用推荐之 一键翻墙的 『Lantern』 | I wanna see your halo. </title>
+  <title> 实习记录Vol.1 『下拉显示网页来源特性的添加』 | I wanna see your halo. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://halohily.com/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/">
+  <link itemprop="mainEntityOfPage" href="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="刘毅">
@@ -327,7 +329,7 @@
             
             
               
-                Mac OS轻应用推荐之 一键翻墙的 『Lantern』
+                实习记录Vol.1 『下拉显示网页来源特性的添加』
               
             
           </h1>
@@ -342,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T23:49:13+08:00">
-                2017-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T11:26:26+08:00">
+                2017-02-18
               </time>
             
 
@@ -365,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/轻应用推荐/" itemprop="url" rel="index">
-                    <span itemprop="name">轻应用推荐</span>
+                  <a href="/categories/实习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">实习记录</span>
                   </a>
                 </span>
 
@@ -383,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/" itemprop="commentCount"></span>
+                <a href="/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -410,36 +412,47 @@
       
 
       
-        <blockquote>
-<p>　　工作或学习时，我们偶尔需要访问被封锁的Google，YouTube等网站。这次为大家推荐一款优秀的一键翻墙软件 ——— Lantern。</p>
-</blockquote>
+        <h3 id="『下拉显示网页来源』的实现"><a href="#『下拉显示网页来源』的实现" class="headerlink" title="『下拉显示网页来源』的实现"></a>『下拉显示网页来源』的实现</h3><p>在最开始先简单介绍一下该效果的实现方式。</p>
+<p>这个功能我们在微信中打开链接时、一些手机浏览器中会经常看到，效果如下图：</p>
+<p><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcuhfbhbhpj30hs080jrm.jpg" alt="下拉显示网页来源"></p>
 <a id="more"></a>
-<p><img src="https://ww3.sinaimg.cn/large/006tNc79ly1fco3h2uf1lj30e80e8t96.jpg" alt="Lantern"></p>
 <ul>
-<li><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>Lantern是一款免费的开源软件，它可以帮助我们快速、安全地访问互联网中被封锁的网站。</li>
-<li>它的官方网站是 <a href="https://www.getlantern.org" target="_blank" rel="external">Lantern</a>，目前已被封锁。</li>
-<li>刚刚已经说过，它是一款开源软件，相关项目代码已开源在Github中，这里是<a href="https://github.com/getlantern/lantern" target="_blank" rel="external">Github项目地址</a>。</li>
-</ul>
+<li><h4 id="UI实现"><a href="#UI实现" class="headerlink" title="UI实现"></a>UI实现</h4><p>在做之前查了一下实现方式，常见的一种是将<code>Webview</code>的背景色设为透明，在<code>Webview</code>下层添加一个同样大小的<code>View</code>，用此<code>View</code>的背景色来模拟<code>Webview</code>背景色，在这个<code>View</code>层上贴一个<code>Label</code>用于显示文字。这样在<code>Webview</code>向下滑动时，就会露出后面的网页来源文字。</p>
+<p>上面的方法比较直观，但是比较繁琐。我们知道<code>UIWebView</code>对象有一个属性是<code>scrollView</code>，所以可以这样来实现:使用<code>insertSubview</code>方法，在<code>scrollView</code>下面插入一个<code>UILabel</code>。即可实现和上面一样的效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UIWebView *webview = [[UIWebView alloc] init];</div><div class="line">UILabel *label = [[UILabel alloc] init];</div><div class="line">[webview insertSubview:label belowSubview:webview.scrollView];</div></pre></td></tr></table></figure>
 </li>
-<li><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul>
-<li>目前最为可靠安全的下载方式为作者在Github中提供的下载地址，包括各个平台的各个版本，这里是官方提供的版本。推荐大家使用这种方式进行下载。这里是<a href="https://github.com/getlantern/forum/issues/833" target="_blank" rel="external">下载地址</a>。</li>
-</ul>
-</li>
-<li><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>下载安装后，打开软件即会在浏览器中弹出以下界面提示你翻墙成功，可以开始尽情访问自己需要的页面了。</p>
-<p><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fco43u5rg5j30go0b3t97.jpg" alt=""></p>
+<li><h4 id="来源文本加载"><a href="#来源文本加载" class="headerlink" title="来源文本加载"></a>来源文本加载</h4><p>显示的文本我们一般都会只截取URL的host部分。这里可以使用<code>webview</code>的URL中host部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">label.text = webview.request.URL.host;</div></pre></td></tr></table></figure>
+<p>文本的加载时机一般选择在<code>webview</code>的<code>request</code>加载完成之后。注意对URL字符串进行空判断，如果此时URL为空，则不为文本赋值，也就是此时不显示label。</p>
 </li>
 </ul>
+<h3 id="为Hybrid框架添加此特性"><a href="#为Hybrid框架添加此特性" class="headerlink" title="为Hybrid框架添加此特性"></a>为Hybrid框架添加此特性</h3><p>功能实现之后，就开始重点了，为框架添加此特性。也就是前端在进行Hybrid App开发时，可以通过<code>Schema</code>或者插件<code>Plugin</code>的方式，对自己的<code>Webview</code>设置<strong>是否</strong>下拉显示来源。</p>
+<p>关于Hybrid入门这里有一篇文章，大家可以先阅读一下。<a href="http://www.cnblogs.com/yexiaochai/p/4921635.html" target="_blank" rel="external">Hybrid入门</a>。</p>
+<p>实现方式是在<code>Webview</code>的基类中暴露一个属性，通过调用该属性对应的setter，来对是否显示进行调整。</p>
+<p>关于这部分，我总结了以下几点收获。</p>
+<ul>
+<li><h4 id="使用枚举类型表示选项、状态、状态码"><a href="#使用枚举类型表示选项、状态、状态码" class="headerlink" title="使用枚举类型表示选项、状态、状态码"></a>使用枚举类型表示选项、状态、状态码</h4><p>这是我在《Effective Objective-C 2.0》中读到过的一个建议，顺便向大家推荐一下这本书，书中讲到的52个方法对于我们培养良好的iOS编码习惯有很大的帮助。</p>
+<p>在对是否显示此特性进行设置时，我们会用到一些状态码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">typedef NS_ENUM(NSInteger, WebSourceShowSate)</div><div class="line">&#123;</div><div class="line">    WebSourceShowSateNo = 1,</div><div class="line">    WebSourceShowSateYes = 2</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>使用枚举类型的状态码，我们可以通过代码很直观地表示状态。</p>
+<p>关于iOS枚举类型的学习，大家可以看这篇 <a href="http://blog.csdn.net/daleiwang/article/details/50581872" target="_blank" rel="external">iOS枚举应用</a>。</p>
 </li>
-<li><h3 id="原理及安全性"><a href="#原理及安全性" class="headerlink" title="原理及安全性"></a>原理及安全性</h3><ul>
-<li>Lantern 让用户能流畅地访问被封锁的互联网站点。Lantern 自动检测一个网站是否被封锁。对那些被封锁的网站，Lantern 通过自有的服务器或者未封锁地区的用户运行的 Lantern 来提供访问。如果网站没有被封锁，Lantern 选择靠边站。这样浏览器就会直接访问网站，而速度不受影响。</li>
-<li>Lantern 全程加密被封锁的网站，但如果网站没被封锁，Lantern 不会对其做任何改动。这意味着一个网络上的窥探者，比如政府的审查部门或者 ISP，没办法看到你访问被封锁网站时的具体内容。那些提供访问点的 Lantern 用户能看到你访问的网站，以及你来自哪里。但他们也看不到具体的内容，因为内容是经过HTTPS加密的。Lantern 只给那些提供访问的 Lantern 用户发送 HTTPS加密的内容。</li>
+</ul>
+<ul>
+<li><h4 id="框架接口设计时，尽量不对外暴露UI相关属性"><a href="#框架接口设计时，尽量不对外暴露UI相关属性" class="headerlink" title="框架接口设计时，尽量不对外暴露UI相关属性"></a>框架接口设计时，尽量不对外暴露UI相关属性</h4><p>我们在对框架的接口进行设计时，应该努力追求直观、清晰，尽量少暴露内部实现细节。努力让使用者只需关注最简单最直观的内容。所以在这个特性中，我们可以选择将一个上述的状态码或者BOOL类型的属性暴露出来，而非将显示文本的<code>Label</code>对外暴露。</p>
+<p>​</p>
+</li>
+<li><h4 id="框架接口设计时，单个参数暴露为属性，多个参数暴露为方法"><a href="#框架接口设计时，单个参数暴露为属性，多个参数暴露为方法" class="headerlink" title="框架接口设计时，单个参数暴露为属性，多个参数暴露为方法"></a>框架接口设计时，单个参数暴露为属性，多个参数暴露为方法</h4><p>在接口中提供对单个的参数进行设置时，将其设置为属性，使用该属性的setter。</p>
+<p>提供对多个参数同时设置时，暴露一个带多个参数的方法。</p>
+<p>​</p>
+</li>
+<li><h4 id="利用属性的setter完成一些操作"><a href="#利用属性的setter完成一些操作" class="headerlink" title="利用属性的setter完成一些操作"></a>利用属性的setter完成一些操作</h4><p>有时候，我们可以通过重写属性的setter，在setter中加入一些操作，使得这些操作能在合适的时机进行。比如本例中，</p>
+<ul>
+<li>在<code>Webview</code>实例化之前，想要对此刻还未实例化的<code>Label</code>是否显示进行设置。我们就可以在webview所在类中添加一个标记Label是否进行显示的参数属性。在<code>webview</code>实例化之前，调用该参数属性的setter对其进行赋值，然后在<code>webview</code>的初始化部分对该属性值进行检查，作相应的设置。</li>
+<li>在<code>Webview</code>实例化之后，想要在框架接口中，提供对已经实例化的<code>Label</code>是否显示进行设置。我们可以利用前文讲到过的暴露出来的状态码或BOOL型属性，重写该属性的setter，然后在该方法中加入对<code>Label</code>是否显示进行设置的代码。这样就可以在对该状态码赋值的同时，完成相关的UI更新。</li>
 </ul>
 </li>
 </ul>
-<p><strong>最后，恳请大家在浏览墙外内容的时候，能够保持审视理智的态度~。</strong></p>
-<p><em>Halo</em></p>
 
       
     </div>
@@ -463,9 +476,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/翻墙/" rel="tag"># 翻墙</a>
+            <a href="/tags/实习记录/" rel="tag"># 实习记录</a>
           
-            <a href="/tags/Lantern/" rel="tag"># Lantern</a>
+            <a href="/tags/下拉显示网页来源/" rel="tag"># 下拉显示网页来源</a>
+          
+            <a href="/tags/Hybrid/" rel="tag"># Hybrid</a>
           
         </div>
       
@@ -478,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/12/Mac OS轻应用推荐系列引言/" rel="next" title="Mac OS轻应用推荐系列引言">
-                <i class="fa fa-chevron-left"></i> Mac OS轻应用推荐系列引言
+              <a href="/2017/02/18/实习技术记录引言/" rel="next" title="实习技术记录引言">
+                <i class="fa fa-chevron-left"></i> 实习技术记录引言
               </a>
             
           </div>
@@ -487,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/18/实习技术记录引言/" rel="prev" title="实习技术记录引言">
-                实习技术记录引言 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,10 +516,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/"
-     data-title="Mac OS轻应用推荐之 一键翻墙的 『Lantern』"
+        <div class="ds-share flat" data-thread-key="2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/"
+     data-title="实习记录Vol.1 『下拉显示网页来源特性的添加』"
      data-content=""
-     data-url="http://halohily.com/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/">
+     data-url="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -535,8 +546,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/"
-           data-title="Mac OS轻应用推荐之 一键翻墙的 『Lantern』" data-url="http://halohily.com/2017/02/12/Mac OS轻应用推荐之 一键翻墙的 『Lantern』/">
+      <div class="ds-thread" data-thread-key="2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/"
+           data-title="实习记录Vol.1 『下拉显示网页来源特性的添加』" data-url="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/">
       </div>
     
   </div>
@@ -656,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理及安全性"><span class="nav-number">4.</span> <span class="nav-text">原理及安全性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#『下拉显示网页来源』的实现"><span class="nav-number">1.</span> <span class="nav-text">『下拉显示网页来源』的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UI实现"><span class="nav-number">1.1.</span> <span class="nav-text">UI实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#来源文本加载"><span class="nav-number">1.2.</span> <span class="nav-text">来源文本加载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为Hybrid框架添加此特性"><span class="nav-number">2.</span> <span class="nav-text">为Hybrid框架添加此特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用枚举类型表示选项、状态、状态码"><span class="nav-number">2.1.</span> <span class="nav-text">使用枚举类型表示选项、状态、状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架接口设计时，尽量不对外暴露UI相关属性"><span class="nav-number">2.2.</span> <span class="nav-text">框架接口设计时，尽量不对外暴露UI相关属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架接口设计时，单个参数暴露为属性，多个参数暴露为方法"><span class="nav-number">2.3.</span> <span class="nav-text">框架接口设计时，单个参数暴露为属性，多个参数暴露为方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用属性的setter完成一些操作"><span class="nav-number">2.4.</span> <span class="nav-text">利用属性的setter完成一些操作</span></a></li></ol></li></ol></div>
             
 
           </div>
