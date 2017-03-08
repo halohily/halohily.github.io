@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[「iTerm」 and 「Oh My Zsh」 配置记录]]></title>
+      <url>%2F2017%2F03%2F08%2F%E3%80%8CiTerm%E3%80%8D%20and%20%E3%80%8COh%20My%20Zsh%E3%80%8D%20%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%2F</url>
+      <content type="text"><![CDATA[昨天配置了一下自己的iTerm，最后的效果确实颜值飙升，终端的使用也方便了许多。非常感谢简书的@SuperDanny，本文主要是对他的教程中遇到问题的注解，方便以后查阅。 首先上效果图： 1.下载安装 iTerm 2.将默认bash切换为zsh1chsh -s /bin/zsh 3.cd到根目录，安装oh-my-zsh12cd ~curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh 4.留在根目录，安装Powerline这里推荐使用pip安装 1pip install powerline-status --user 添加--user 防止因权限问题安装失败 5.下载、安装字体库 字体库 推荐采用方式为：cd到根目录，clone本项目 cd到项目目录，执行./install.sh，安装所有Powerline字体 安装完成后，可看到提示 1All Powerline fonts installed to /Users/superdanny/Library/Fonts 6.设置iTerm的Regular Font 和 Non-ASCII Font 安装完字体库之后，把iTerm 2的设置里的Profile中的Text 选项卡中里的Regular Font和Non-ASCII Font的字体都设置成 Powerline的字体，我这里设置的字体是12pt Meslo LG S DZ Regular for Powerline。 7.配色方案 安装配色方案 进入刚刚下载的工程的solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm中 配置配色方案 通过load presets选择刚刚安装的配色主题即可 8.使用agnoster主题 下载agnoster主题 依旧推荐cd到根目录，clone方式安装 cd到agnoster目录，运行install文件 1open install 设置该主题 在根目录，编辑.zshrc文件 1vim .zshrc 将ZSH_THEME后面的字段改为agnoster。ZSH_THEME=&quot;agnoster&quot;（agnoster即为要设置的主题） 9.增加指令高亮效果—zsh-syntax-highlighting指令高亮效果作用是当用户输入正确命令时指令会绿色高亮，错误时命令红色高亮 cd到根目录 clone方式安装项目 再次编辑.zshrc文件，添加下面内容 1source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh cd到plugins目录 1cd ~/.oh-my-zsh/custom/plugins 编辑.zshrc文件 注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件在本zshrc文件中，添加下面内容： 1plugins=(zsh-syntax-highlighting) cd到根目录，执行source指令 1source .zshrc 至此，重启iTerm，即可看到设置生效。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[实习技术记录引言]]></title>
       <url>%2F2017%2F02%2F18%2F%E5%AE%9E%E4%B9%A0%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95%E5%BC%95%E8%A8%80%2F</url>
       <content type="text"><![CDATA[最近开始实习工作大概一周了，每天都会接触一些新的东西、有一些新的感悟。这应该是有必要记录下来的。日记的话可能没有办法保证产量，更难保证质量，所以我打算用一个项目作为一篇文章的内容跨度。 工作的内容是对Hybrid相关业务在iOS端提供支持，后期会更多地投入到React Native的项目中。所以，我的记录中的主题会包括：iOS开发，Hybrid，React Native。同时，由于是做框架类的开发，也会记录一些有关框架型项目设计、架构的感悟。 Halo 2017.2.18]]></content>
