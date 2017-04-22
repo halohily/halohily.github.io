@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[让你的图片加载姿势更优美- iOS图片加载的优化]]></title>
+      <url>%2F2017%2F04%2F22%2F%E8%AE%A9%E4%BD%A0%E7%9A%84%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%A7%BF%E5%8A%BF%E6%9B%B4%E4%BC%98%E7%BE%8E-%20iOS%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E7%9A%84%E4%BC%98%E5%8C%96%2F</url>
+      <content type="text"><![CDATA[最近负责使用纯React Native搭建一个新客户端，封装native组件时，对图片加载的方式进行了不同场景的优化，尽可能提高了客户端的性能。 Apple官方为生成一个UIImage对象提供了两种方法： imageNamed，参数为图片的名字 imageWithContentsOfFile，参数是图片文件的路径 根据官方文档： imageNamed imageNamed: 这个方法用一个指定的名字在系统缓存中查找并返回一个图片对象，如果它存在的话。如果缓存中没有找到相应的图片，这个方法从指定的文档中加载然后缓存并返回这个对象。 不难看出，imageNamed的优点是加载时会缓存图片。所以当图片频繁使用时，用imageNamed方法是比较合适的。如果你的一个TableCiew中每个Cell都需要加载同一个图标，使用该方法，系统会把此图标Cache到内存，每次使用时，图标指针指向同一块内存。这样的图片加载效率是非常高的。 imageWithContentsOfFile 从项目的bundle中，仅加载图片，图像数据不会缓存。 因此，对于比较大的图片以及使用情况较少时，便可使用该方法，降低内存消耗。 两种方法各有优点，在不同场景使用不同的方法，才能有效优化性能。 比如，加载APP的启动loading图片，图片较大，且加载频率很低，很明显使用bundle加载是很合适的。使用imageNamed的举例已在上文提及。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[「iTerm」 and 「Oh My Zsh」 配置记录]]></title>
       <url>%2F2017%2F03%2F08%2F%E3%80%8CiTerm%E3%80%8D%20and%20%E3%80%8COh%20My%20Zsh%E3%80%8D%20%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%2F</url>
       <content type="text"><![CDATA[昨天配置了一下自己的iTerm，最后的效果确实颜值飙升，终端的使用也方便了许多。非常感谢简书的@SuperDanny，本文主要是对他的教程中遇到问题的注解，方便以后查阅。 首先上效果图： 1.下载安装 iTerm 2.将默认bash切换为zsh1chsh -s /bin/zsh 3.cd到根目录，安装oh-my-zsh12cd ~curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh 4.留在根目录，安装Powerline这里推荐使用pip安装 1pip install powerline-status --user 添加--user 防止因权限问题安装失败 5.下载、安装字体库 字体库 推荐采用方式为：cd到根目录，clone本项目 cd到项目目录，执行./install.sh，安装所有Powerline字体 安装完成后，可看到提示 1All Powerline fonts installed to /Users/superdanny/Library/Fonts 6.设置iTerm的Regular Font 和 Non-ASCII Font 安装完字体库之后，把iTerm 2的设置里的Profile中的Text 选项卡中里的Regular Font和Non-ASCII Font的字体都设置成 Powerline的字体，我这里设置的字体是12pt Meslo LG S DZ Regular for Powerline。 7.配色方案 安装配色方案 进入刚刚下载的工程的solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm中 配置配色方案 通过load presets选择刚刚安装的配色主题即可 8.使用agnoster主题 下载agnoster主题 依旧推荐cd到根目录，clone方式安装 cd到agnoster目录，运行install文件 1open install 设置该主题 在根目录，编辑.zshrc文件 1vim .zshrc 将ZSH_THEME后面的字段改为agnoster。ZSH_THEME=&quot;agnoster&quot;（agnoster即为要设置的主题） 9.增加指令高亮效果—zsh-syntax-highlighting指令高亮效果作用是当用户输入正确命令时指令会绿色高亮，错误时命令红色高亮 cd到根目录 clone方式安装项目 再次编辑.zshrc文件，添加下面内容 1source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh cd到plugins目录 1cd ~/.oh-my-zsh/custom/plugins 编辑.zshrc文件 注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件在本zshrc文件中，添加下面内容： 1plugins=(zsh-syntax-highlighting) cd到根目录，执行source指令 1source .zshrc 至此，重启iTerm，即可看到设置生效。]]></content>
