@@ -525,19 +525,22 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (BOOL)becomeFirstResponder</div><div class="line">&#123;</div><div class="line">[super becomeFirstResponder];</div><div class="line">return [self.textInput becomeFirstResponder];</div><div class="line">&#125;</div><div class="line">​</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/3587644-f9a57d5239608dd0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_2016.PNG"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- ##### 历史足迹、历史预定、积分信息</div><div class="line">  ![IMG_2017.PNG](http://upload-images.jianshu.io/upload_images/3587644-8ae5c480a7417417.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">  ![IMG_2019.PNG](http://upload-images.jianshu.io/upload_images/3587644-9746bd57a147bc54.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">  - 这部分也依然使用了封装的`loading`页面。如果数据条目为空，则不显示`tableview`，提示`暂无相关信息`，如图。</div><div class="line">- ##### 清除缓存</div><div class="line">  - 这里其实只使用了`SDImageCache`的相关方法。我们还可以清除本app的缓存数据所在目录来达到真正清除缓存的目的，日后讨论。</div><div class="line">  - 缓存数据获取的初始单位是`B`，我们需要除以`1024`1次、2次来判断当前数据是在`KB`级别还是`MB`级别，并作正确显示。</div><div class="line">- ##### 退出登录</div><div class="line">  - 点击此按钮，清除`userDefaults`中相关数据，然后模态弹出登录页面。</div><div class="line">  - 这里可以注意的一点是，我们在模态弹出登陆页，并且再次登录之后，界面是在退出登录之前的页面的，也就是tab栏的第三个页面。如果想要再次登录之后，界面出现在tab栏的首页，我们可以在模态弹出登录页的完成回调中，对当前tabVC的`selected index`进行设置。代码如下：</div></pre></td></tr></table></figure>
-<p>  DELoginViewController *loginVC = [[DELoginViewController alloc] init];</p>
-<pre><code>[self presentViewController:loginVC animated:YES completion:^{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 耗时的操作
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // 更新界面
-            AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            appDelegate.tabbarVC.selectedIndex = 0;
-        });
-    });
-}];
-</code></pre><p>  ```</p>
+</li>
+<li><h5 id="历史足迹、历史预定、积分信息"><a href="#历史足迹、历史预定、积分信息" class="headerlink" title="历史足迹、历史预定、积分信息"></a>历史足迹、历史预定、积分信息</h5><p><img src="http://upload-images.jianshu.io/upload_images/3587644-8ae5c480a7417417.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_2017.PNG"><br><img src="http://upload-images.jianshu.io/upload_images/3587644-9746bd57a147bc54.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IMG_2019.PNG"></p>
+<ul>
+<li>这部分也依然使用了封装的<code>loading</code>页面。如果数据条目为空，则不显示<code>tableview</code>，提示<code>暂无相关信息</code>，如图。</li>
+</ul>
+</li>
+<li><h5 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h5><ul>
+<li>这里其实只使用了<code>SDImageCache</code>的相关方法。我们还可以清除本app的缓存数据所在目录来达到真正清除缓存的目的，日后讨论。</li>
+<li>缓存数据获取的初始单位是<code>B</code>，我们需要除以<code>1024</code>1次、2次来判断当前数据是在<code>KB</code>级别还是<code>MB</code>级别，并作正确显示。</li>
+</ul>
+</li>
+<li><h5 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h5><ul>
+<li>点击此按钮，清除<code>userDefaults</code>中相关数据，然后模态弹出登录页面。</li>
+<li>这里可以注意的一点是，我们在模态弹出登陆页，并且再次登录之后，界面是在退出登录之前的页面的，也就是tab栏的第三个页面。如果想要再次登录之后，界面出现在tab栏的首页，我们可以在模态弹出登录页的完成回调中，对当前tabVC的<code>selected index</code>进行设置。代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DELoginViewController *loginVC = [[DELoginViewController alloc] init];</div><div class="line">        [self presentViewController:loginVC animated:YES completion:^&#123;</div><div class="line">            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line">                // 耗时的操作</div><div class="line">                dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">                    // 更新界面</div><div class="line">                    AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;</div><div class="line">                    appDelegate.tabbarVC.selectedIndex = 0;</div><div class="line">                &#125;);</div><div class="line">            &#125;);</div><div class="line">        &#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -1066,6 +1069,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://halohily.com/2017/02/18/实习技术记录引言/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="刘毅">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="I wanna see your halo.">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="I wanna see your halo." src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/18/实习技术记录引言/" itemprop="url">
+                  实习技术记录引言
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T11:26:26+08:00">
+                2017-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实习记录/" itemprop="url" rel="index">
+                    <span itemprop="name">实习记录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/18/实习技术记录引言/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/实习技术记录引言/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>　　最近开始实习工作大概一周了，每天都会接触一些新的东西、有一些新的感悟。这应该是有必要记录下来的。日记的话可能没有办法保证产量，更难保证质量，所以我打算用一个项目作为一篇文章的内容跨度。</p>
+<p>　　工作的内容是对Hybrid相关业务在iOS端提供支持，后期会更多地投入到React Native的项目中。所以，我的记录中的主题会包括：iOS开发，Hybrid，React Native。同时，由于是做框架类的开发，也会记录一些有关框架型项目设计、架构的感悟。</p>
+<p><em>Halo</em></p>
+<p>2017.2.18</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://halohily.com/2017/02/18/实习记录Vol.1 『下拉显示网页来源特性的添加』/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1187,162 +1346,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://halohily.com/2017/02/18/实习技术记录引言/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="刘毅">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="I wanna see your halo.">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="I wanna see your halo." src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/18/实习技术记录引言/" itemprop="url">
-                  实习技术记录引言
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T11:26:26+08:00">
-                2017-02-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实习记录/" itemprop="url" rel="index">
-                    <span itemprop="name">实习记录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/18/实习技术记录引言/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/实习技术记录引言/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>　　最近开始实习工作大概一周了，每天都会接触一些新的东西、有一些新的感悟。这应该是有必要记录下来的。日记的话可能没有办法保证产量，更难保证质量，所以我打算用一个项目作为一篇文章的内容跨度。</p>
-<p>　　工作的内容是对Hybrid相关业务在iOS端提供支持，后期会更多地投入到React Native的项目中。所以，我的记录中的主题会包括：iOS开发，Hybrid，React Native。同时，由于是做框架类的开发，也会记录一些有关框架型项目设计、架构的感悟。</p>
-<p><em>Halo</em></p>
-<p>2017.2.18</p>
-
-          
         
       
     </div>
