@@ -117,7 +117,7 @@ UITableview的多种控件嵌套
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3587644-c402ca06b221b1c0?imageMogr2/auto-orient/thumbnail/x550/blur/1x0/quality/75|imageslim">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3587644-26029c1e67c1db8b.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3587644-770a67f4cc2380ce.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-10-01T15:48:53.000Z">
+<meta property="og:updated_time" content="2017-10-01T15:54:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「iOS」高仿【少数派】客户端 代码+思路讲解">
 <meta name="twitter:description" content="一、写在前面在我的iOS开发学习过程中，阅读过许多同学的高仿项目文章、源码，对我助益颇深。但是许许多多的高仿项目在技术方面各有侧重，所以我先把本项目中值得探讨的技术点列出，方便正好需要的同学。
@@ -455,6 +455,7 @@ UITableview的多种控件嵌套
 <p>在本文中，我会先介绍项目的整体实现思路，然后对于开发过程中遇到的值得探讨的点进一步讲述。</p>
 <blockquote>
 <p>项目中的数据来源为使用<code>Charles</code>抓包获取，用json文件存在bundle中。<br>项目中的素材来源为官方客户端ipa包使用<code>iOS Images Extractors</code>解析获得。<br><strong>声明：仅用于学习交流，严禁用于商业用途。</strong></p>
+</blockquote>
 <h2 id="三、整体实现思路"><a href="#三、整体实现思路" class="headerlink" title="三、整体实现思路"></a>三、整体实现思路</h2><p>在这一节，我会按照页面来介绍整体开发思路。</p>
 <h3 id="1-首页"><a href="#1-首页" class="headerlink" title="1. 首页"></a>1. 首页</h3><p><img src="http://upload-images.jianshu.io/upload_images/3587644-604171cdc08f1656?imageMogr2/auto-orient/thumbnail/x550/blur/1x0/quality/75|imageslim" alt="首页展示-1"><br><img src="http://upload-images.jianshu.io/upload_images/3587644-d6dd0e4390589e79?imageMogr2/auto-orient/thumbnail/x550/blur/1x0/quality/75|imageslim" alt="首页展示-2"></p>
 <h4 id="1-1-页面简述"><a href="#1-1-页面简述" class="headerlink" title="1.1 页面简述"></a>1.1 页面简述</h4><ul>
@@ -463,7 +464,6 @@ UITableview的多种控件嵌套
 <li>内容展示部分：<br>首先有一个左右滑动的类似轮播图部分。用以展示重点推荐的专题、文章、广告等。<br>接下来是一篇文章。<br>然后又是一个手动滑动的类似轮播图。用来展示付费的栏目。<br>剩余部分全为文章。<h4 id="1-2-实现思路"><a href="#1-2-实现思路" class="headerlink" title="1.2 实现思路"></a>1.2 实现思路</h4><h5 id="1-2-1-内容展示"><a href="#1-2-1-内容展示" class="headerlink" title="1.2.1 内容展示"></a>1.2.1 内容展示</h5>使用UITableview，包含三种cell。<br>轮播图为横向的UIScrollView，为其中的每一个子cell设置tag值，点击事件以delegate的方式交由首页VC实现。<br>文章展示cell为普通的cell。右上角的菜单按钮点击事件以delegate的方式交由首页VC实现。<h5 id="1-2-2-导航栏实现"><a href="#1-2-2-导航栏实现" class="headerlink" title="1.2.2 导航栏实现"></a>1.2.2 导航栏实现</h5>导航栏的动态效果需要随着内容滑动而进行，而后悬停在顶部。其中涉及导航栏的<strong>高度变化</strong>以及<strong>悬停效果</strong>。<br>我们很容易想到使用UITableView的<code>tableHeader</code>和<code>sectionHeader</code>，那么先来明确一下这两种视图的特性：<br>tableHeader没有顶部悬停效果，但是可以方便地更改视图的高度：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">CGRect newFrame = headerView.frame;</div><div class="line">newFrame.size.height = newFrame.size.height + webView.frame.size.height;</div><div class="line">headerView.frame = newFrame;</div><div class="line"></div><div class="line">//beginUpdates和endUpdates方法用来以动画形式更改高度</div><div class="line">[self.tableView beginUpdates];</div><div class="line"></div><div class="line">//要更改tableHeader，必须显式调用set方法</div><div class="line">[self.tableView setTableHeaderView:headerView];</div><div class="line"></div><div class="line">[self.tableView endUpdates];</div></pre></td></tr></table></figure>
 </li>
 </ul>
-</blockquote>
 <p>而sectionHeader是默认带有悬停效果的，但是我没有找到可以高效更新视图高度的方法，所以这种方法果断放弃。<br>对于tableHeader的悬停效果，可以在页面滑到临界点时，将tableHeader加入到与tableview同一层级的view中，手动实现悬停效果，这也是许多UIScrollView的子View想要实现页面悬停效果的方式。<br>但是有一点需要知道，UITableView是一个庞大的对象，对它频繁更新势必会影响性能。而动态更改tableHeader时，会不停地改变整个UITableView的布局。为了一个小小的动态效果实在不必如此。所以，我使用一个单独的view作为顶部的导航栏，并且将它和tableview加入到同一个容器scrollview中。这样动态效果仅仅影响这个单独的view布局。</p>
 <h5 id="1-2-3-分类专题页"><a href="#1-2-3-分类专题页" class="headerlink" title="1.2.3 分类专题页"></a>1.2.3 分类专题页</h5><p><img src="http://upload-images.jianshu.io/upload_images/3587644-986f0cda4c002788?imageMogr2/auto-orient/thumbnail/x550/blur/1x0/quality/75|imageslim" alt="分类专题页"><br>点击首页右上角的按钮或者在内容cell中左划，会进入分类专题页面。这个页面只是简单模拟实现了一下。</p>
 <h5 id="1-2-4-文章阅读页面"><a href="#1-2-4-文章阅读页面" class="headerlink" title="1.2.4 文章阅读页面"></a>1.2.4 文章阅读页面</h5><p><img src="http://upload-images.jianshu.io/upload_images/3587644-b137bc10c479251a?imageMogr2/auto-orient/thumbnail/x550/blur/1x0/quality/75|imageslim" alt="文章阅读页"><br>点击文章cell或者轮播部分的文章类型子cell，会进入对应的文章阅读页面。<br>这个页面底部导航栏为手动模拟实现。文章展示使用<code>WKWebView</code>。在整个页面包含web内容部分，均可以右划返回。</p>
