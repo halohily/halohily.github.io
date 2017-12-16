@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="刘毅 halohily@hotmail.com"><title>「iTerm」 and 「Oh My Zsh」 配置记录 · 刘毅的个人博客。</title><meta name="description" content="昨天配置了一下自己的iTerm，最后的效果确实颜值飙升，终端的使用也方便了许多。非常感谢简书的@SuperDanny，本文主要是对他的教程中遇到问题的注解，方便以后查阅。
+
+
+首先上效果图：
+
+
+1.下载安装 iTerm
+2.将默认bash切换为zsh1chsh -s /bin/zsh
+
+3.cd到"><meta name="keywords" content="Hexo,iOS,Github,Python,JavaScript,Objective-C"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">刘毅的个人博客。</a></h3><div class="description"><p>iOS开发者，正在探索大前端</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/http://www.weibo.com/3656155132/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/https://github.com/halohily"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">Home</a></li><li><a href="/about">Sobre</a></li><li><a href="/archives">Arquivo</a></li><li><a href="/links">Links</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>「iTerm」 and 「Oh My Zsh」 配置记录</a></h3></div><div class="post-content"><blockquote>
+<p>昨天配置了一下自己的iTerm，最后的效果确实颜值飙升，终端的使用也方便了许多。非常感谢简书的<a href="http://www.jianshu.com/u/65f91259eb5c" target="_blank" rel="external">@SuperDanny</a>，本文主要是对他的教程中遇到问题的注解，方便以后查阅。</p>
+</blockquote>
+<a id="more"></a>
+<p>首先上效果图：</p>
+<p><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fdfhzeoaoxj30wi0nqx4g.jpg" alt="效果图"></p>
+<ul>
+<li><h3 id="1-下载安装-iTerm"><a href="#1-下载安装-iTerm" class="headerlink" title="1.下载安装 iTerm"></a>1.下载安装 iTerm</h3></li>
+<li><h3 id="2-将默认bash切换为zsh"><a href="#2-将默认bash切换为zsh" class="headerlink" title="2.将默认bash切换为zsh"></a>2.将默认bash切换为zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chsh -s /bin/zsh</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="3-cd到根目录，安装oh-my-zsh"><a href="#3-cd到根目录，安装oh-my-zsh" class="headerlink" title="3.cd到根目录，安装oh-my-zsh"></a>3.cd到根目录，安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="4-留在根目录，安装Powerline"><a href="#4-留在根目录，安装Powerline" class="headerlink" title="4.留在根目录，安装Powerline"></a>4.留在根目录，安装Powerline</h3><p>这里推荐使用pip安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install powerline-status --user</div></pre></td></tr></table></figure>
+<p>添加<code>--user</code> 防止因权限问题安装失败</p>
+</li>
+<li><h3 id="5-下载、安装字体库"><a href="#5-下载、安装字体库" class="headerlink" title="5.下载、安装字体库"></a>5.下载、安装字体库</h3><ul>
+<li><a href="https://github.com/powerline/fonts" target="_blank" rel="external">字体库</a></li>
+<li>推荐采用方式为：cd到根目录，clone本项目</li>
+<li>cd到项目目录，执行<code>./install.sh</code>，安装所有Powerline字体</li>
+</ul>
+<p>安装完成后，可看到提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">All Powerline fonts installed to /Users/superdanny/Library/Fonts</div></pre></td></tr></table></figure>
+</li>
+<li><h3 id="6-设置iTerm的Regular-Font-和-Non-ASCII-Font"><a href="#6-设置iTerm的Regular-Font-和-Non-ASCII-Font" class="headerlink" title="6.设置iTerm的Regular Font 和 Non-ASCII Font"></a>6.设置iTerm的Regular Font 和 Non-ASCII Font</h3><ul>
+<li>安装完字体库之后，把iTerm 2的设置里的Profile中的Text 选项卡中里的Regular Font和Non-ASCII Font的字体都设置成 Powerline的字体，我这里设置的字体是12pt Meslo LG S DZ Regular for Powerline。</li>
+</ul>
+</li>
+<li><h3 id="7-配色方案"><a href="#7-配色方案" class="headerlink" title="7.配色方案"></a>7.配色方案</h3><ul>
+<li><p>安装<a href="https://github.com/altercation/solarized" target="_blank" rel="external">配色方案</a></p>
+<p>进入刚刚下载的工程的solarized/iterm2-colors-solarized 下双击 Solarized Dark.itermcolors 和 Solarized Light.itermcolors 两个文件就可以把配置文件导入到 iTerm中</p>
+</li>
+<li><p>配置配色方案</p>
+<p>通过load presets选择刚刚安装的配色主题即可</p>
+</li>
+</ul>
+</li>
+<li><h3 id="8-使用agnoster主题"><a href="#8-使用agnoster主题" class="headerlink" title="8.使用agnoster主题"></a>8.使用agnoster主题</h3><ul>
+<li><p>下载<a href="https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor" target="_blank" rel="external">agnoster主题</a></p>
+<p>依旧推荐cd到根目录，clone方式安装</p>
+</li>
+<li><p>cd到agnoster目录，运行install文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open install</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>设置该主题</strong></p>
+<p>在根目录，编辑<code>.zshrc</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim .zshrc</div></pre></td></tr></table></figure>
+<p>将<code>ZSH_THEME</code>后面的字段改为<code>agnoster</code>。<code>ZSH_THEME=&quot;agnoster&quot;</code>（agnoster即为要设置的主题）</p>
+</li>
+</ul>
+</li>
+<li><h3 id="9-增加指令高亮效果—zsh-syntax-highlighting"><a href="#9-增加指令高亮效果—zsh-syntax-highlighting" class="headerlink" title="9.增加指令高亮效果—zsh-syntax-highlighting"></a>9.增加指令高亮效果—<a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="external">zsh-syntax-highlighting</a></h3><p>指令高亮效果作用是当用户输入正确命令时指令会绿色高亮，错误时命令红色高亮</p>
+<ul>
+<li><p>cd到根目录</p>
+</li>
+<li><p>clone方式安装项目</p>
+</li>
+<li><p>再次编辑<code>.zshrc</code>文件，添加下面内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</div></pre></td></tr></table></figure>
+</li>
+<li><p>cd到plugins目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd ~/.oh-my-zsh/custom/plugins</div></pre></td></tr></table></figure>
+</li>
+<li><p>编辑<code>.zshrc</code>文件</p>
+<h3 id="注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件"><a href="#注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件" class="headerlink" title="注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件"></a><strong>注意，此时在plugins目录下，此zshrc为本目录下的zshrc文件</strong></h3><p>在本zshrc文件中，添加下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugins=(zsh-syntax-highlighting)</div></pre></td></tr></table></figure>
+</li>
+<li><p>cd到根目录，执行source指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source .zshrc</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>至此，重启iTerm，即可看到设置生效。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-03-08</span><i class="fa fa-tag"></i><a href="/categories/软件配置/" title="软件配置" class="tag">软件配置 </a><a href="/tags/iTerm/" title="iTerm" class="tag">iTerm </a><a href="/tags/Oh-My-Zsh/" title="Oh My Zsh" class="tag">Oh My Zsh </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,https://halohily.com/「iTerm」 and 「Oh My Zsh」 配置记录/,刘毅的个人博客。,「iTerm」 and 「Oh My Zsh」 配置记录,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/让你的图片加载姿势更优美- iOS图片加载的优化/" title="让你的图片加载姿势更优美- iOS图片加载的优化" class="btn">Post Anterior</a></li><li class="next pagbuttons"><a role="navigation" href="/实习技术记录引言/" title="实习技术记录引言" class="btn">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
