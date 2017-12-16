@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="刘毅 halohily@hotmail.com"><title>「LYIconfont」快捷设置iconfont的工具类 · halohily的博客</title><meta name="description" content="在刚刚接触iOS开发的时候，每次涉及到图标、按钮等绘制工作时，都觉得无比繁琐。因为我们需要将尺寸合适的图片格式的素材加入到项目中，设置一系列冗杂的UIImageView相关设置。当然，如果需要在不同分辨率下显示，我们还需为一个图标准备多个不同分辨率的素材。当你的设计改变，仅仅想要将一个小图标的颜色进"><meta name="keywords" content="Hexo,iOS,Github,Python,JavaScript,Objective-C"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h4 title=""><a href="/">halohily的博客</a></h4><div class="description"><p>iOS开发者，正在探索大前端</p></div></div></div><ul class="social-links"><li><a href="http://weibo.com/halohily"><i class="fa fa-weibo"></i></a></li><li><a href="http://github.com/halohily"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">速览</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h4><a>「LYIconfont」快捷设置iconfont的工具类</a></h4></div><div class="post-content"><blockquote>
+<p> 在刚刚接触<code>iOS开发</code>的时候，每次涉及到<code>图标</code>、<code>按钮</code>等绘制工作时，都觉得无比繁琐。因为我们需要将<strong>尺寸合适</strong>的<strong>图片格式</strong>的素材加入到项目中，设置一系列冗杂的<code>UIImageView</code>相关设置。当然，如果需要在不同分辨率下显示，我们还需为一个图标准备<strong>多个不同分辨率的素材</strong>。当你的设计改变，仅仅想要将一个小图标的颜色进行替换时，就不得不<strong>重新制作图片素材</strong>，并在项目中进行<strong>替换</strong>。</p>
+<p>你看到了，加粗的关键词都是我对这种开发模式的吐槽。</p>
+<p>在之前的文章里，我就已经向大家强烈安利过<code>iconfont</code>，今天终于可以为它单独写一篇文章。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="iconfont简介"><a href="#iconfont简介" class="headerlink" title="iconfont简介"></a><code>iconfont</code>简介</h4><p>到如今，我们拥有了<code>iconfont</code>技术，在前端、客户端等领域都被广泛使用。简单来说，就是它将图标素材转换为<strong>矢量</strong>的<code>字体文件</code>的形式在界面中进行展示。</p>
+<p>如你所见，它是矢量素材，我们不需要为了不同分辨率下分别进行设置，像你的<code>UILabel</code>中的文字一样，它是一直高清的。</p>
+<p>同时，它是一种<code>字体</code>，所以当你想要更换颜色时，只需要像更换<code>UILabel</code>颜色一样，对它的颜色进行<strong>代码设置</strong>。</p>
+<p>当然，更重要的是，你不再需要图片格式的素材，客户端的体积和性能表现也会有相应提升。</p>
+<p><strong>在这里，向大家强烈推荐<a href="http://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.1.371ef04eaWpimr" target="_blank" rel="external">阿里巴巴的iconfont图标库</a>。</strong></p>
+<h4 id="LYIconfont介绍"><a href="#LYIconfont介绍" class="headerlink" title="LYIconfont介绍"></a><code>LYIconfont</code>介绍</h4><p>当然，在<code>iconfont</code>的使用过程中，我也遇到了一些令人懊恼的问题。比如，要想使用一个<code>iconfont</code>形式的图标，我需要编写一大堆繁琐的代码，如你所见：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UIButton *reLocate = [[UIButton alloc] initWithFrame:CGRectMake(DEAppWidth - 90, 15, 80, 15)];</div><div class="line">[reLocate setTitle:@&quot;\U0000e8a4 重新定位&quot; forState:UIControlStateNormal];</div><div class="line">[reLocate setTitleColor:DEColor(26, 152, 252) forState:UIControlStateNormal];</div><div class="line">reLocate.titleLabel.font = [UIFont fontWithName:@&quot;iconfont&quot; size:15.0];</div><div class="line">reLocate.contentHorizontalAlignment = NSTextAlignmentRight;</div></pre></td></tr></table></figure>
+<p>这是对一个<code>UIButton</code>形式的<code>iconfont</code>图标进行设置所需的代码量。</p>
+<p>所以我对诸如此类的设置代码进行了封装，方便<code>iconfont</code>形式素材的使用。</p>
+<p>这里是<a href="https://github.com/halohily/LYIconfont" target="_blank" rel="external">项目地址</a>。如果它对你有帮助，希望点一个star~</p>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><ul>
+<li>项目中引入<code>LYIconfont.h</code>和<code>LYIconfont.m</code>文件</li>
+<li>在需要设置<code>iconfont</code>图标的文件中引入<code>LYIconfont.h</code>头文件</li>
+</ul>
+<h4 id="调用方式："><a href="#调用方式：" class="headerlink" title="调用方式："></a>调用方式：</h4><ul>
+<li>获取一个<code>UIButton</code>类型的图标：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UIButton *iconfontBtn = [LYIconfont LYIconfontButtonWithFrame:frame code:@&quot;\U0000e6e9&quot; color:someColor size:25.0];</div></pre></td></tr></table></figure>
+<ul>
+<li>获取一个<code>UILabel</code>类型的图标：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UILabel *iconfontLabel = [LYIconfont LYIconfontLabelWithFrame:frame code:@&quot;\U0000e6e9&quot; color:someColor size:25.0];</div></pre></td></tr></table></figure>
+<h4 id="参数解析："><a href="#参数解析：" class="headerlink" title="参数解析："></a>参数解析：</h4><ul>
+<li><code>frame</code></li>
+</ul>
+<p>你的按钮或标签形式的图标<code>frame</code></p>
+<ul>
+<li>code</li>
+</ul>
+<p>你的图标素材编码</p>
+<ul>
+<li>color</li>
+</ul>
+<p>你的图标颜色</p>
+<ul>
+<li>size</li>
+</ul>
+<p>你的图标尺寸</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-08-04</span><i class="fa fa-tag"></i><a href="/categories/iOS之路/" title="iOS之路" class="tag">iOS之路 </a><a href="/tags/工具类/" title="工具类" class="tag">工具类 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,https://halohily.com/「LYIconfont」快捷设置iconfont的工具类/,halohily的博客,「LYIconfont」快捷设置iconfont的工具类,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/从简书iOS客户端，来谈谈Hybrid方案细节设计/" title="从简书iOS客户端，来谈谈Hybrid方案细节设计" class="btn">Post Anterior</a></li><li class="next pagbuttons"><a role="navigation" href="/「PHP」行车服务app后端代码简析/" title="「PHP」行车服务app后端代码简析" class="btn">Próximo post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
