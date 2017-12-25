@@ -128,12 +128,12 @@ a:hover, a:active {
   list-style: none;
   padding: 18px 30px;
   float: left;
-  font-size: 18px;
+  font-size: 12px;
 }
 .page-top .nav li {
   position: relative;
   display: initial;
-  padding-right: 80px;
+  padding-right: 20px;
 }
 .page-top .nav a {
   color: #5A5A5A;
@@ -143,7 +143,7 @@ a:hover, a:active {
 }
 .page-top .nav a.current {
   color: #5A5A5A;
-  padding-bottom: 18px;
+  padding-bottom: 22px;
   border-bottom: 1px solid #5A5A5A;
 }
 .page-top .information {
